@@ -11,6 +11,11 @@ argument-hint: [optional context about the PR or areas to focus on]
 allowed-tools: Bash(jq *), Bash(gh *), Bash(git *), Bash(make *), Bash(npm *), Read, Grep, Glob, Skill, Agent
 ---
 
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
+
 When running a PR code review, follow the process outlined here.
 
 ## Pre-requisites

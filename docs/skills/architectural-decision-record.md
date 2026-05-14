@@ -37,7 +37,7 @@ Operator documentation for the `/architectural-decision-record` skill in the han
 
 ## How to invoke it
 
-Run `/architectural-decision-record` with a topic or an existing document path.
+Run `/architectural-decision-record` in Claude Code or Pi with a topic or an existing document path.
 
 Give it:
 

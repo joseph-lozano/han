@@ -7,6 +7,7 @@ This page is for contributors: anyone adding, editing, or restructuring skills, 
 ## TL;DR
 
 - Skills live in [`plugin/skills/{name}/SKILL.md`](./plugin/skills/). Agents live in [`plugin/agents/{name}.md`](./plugin/agents/).
+- The Pi package manifest lives in [`package.json`](./package.json). Pi prompt aliases live in [`prompts/`](./prompts/), and Pi-specific agent syncing lives in [`pi/extensions/han-agents.ts`](./pi/extensions/han-agents.ts).
 - Long-form docs (for humans deciding *when* and *how* to use a skill or agent) live in `docs/skills/{name}.md` and `docs/agents/{name}.md`.
 - **Every skill and every agent gets a long-form doc.** No exceptions. See the [coverage rule](./docs/templates/coverage-rule.md).
 - Use the [long-form skill template](./docs/templates/skill-long-form-template.md) or the [agent template](./docs/templates/agent-long-form-template.md).
@@ -29,7 +30,8 @@ Read these once:
    - Body: numbered steps, `${CLAUDE_SKILL_DIR}` paths for script references, extracted references under `references/`.
 3. Copy [the skill template](./docs/templates/skill-long-form-template.md) into `docs/skills/{name}.md` and fill it in. Every skill gets a long-form doc.
 4. Add the skill to the [Skills Index](./docs/skills/README.md) with a one-sentence scent line and a link.
-5. Update the marketplace registry at [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) if needed.
+5. Add or update the matching Pi prompt alias under [`prompts/`](./prompts/) so `/skill-name` works in Pi.
+6. Update the marketplace registry at [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) if needed.
 
 ## Adding an agent
 
@@ -71,6 +73,7 @@ Before opening the PR, run through this checklist:
 - [ ] Context injection commands (`` !`command` ``) are simple; complex operations live in scripts.
 - [ ] Long-form doc follows the template.
 - [ ] The skill or agent appears in the right index, at the right group, with accurate scent.
+- [ ] New skills have matching Pi prompt aliases in `prompts/`.
 - [ ] Internal links resolve.
 - [ ] No em-dashes anywhere in the doc.
 - [ ] No *"actually," "just," "leverage," "utilize," "showcase," "robust" (vague), "It's worth noting," "Importantly,"* or other voice violations.
@@ -79,6 +82,7 @@ Before opening the PR, run through this checklist:
 
 - [Plugin landing page](./README.md). Where end-users start.
 - [Root CLAUDE.md](./CLAUDE.md). Project map and doc index for assistants and contributors.
+- [Pi compatibility](./docs/pi.md). How the Pi package maps Han skills, agents, and slash commands.
 - [Writing voice](./docs/writing-voice.md). The voice profile every doc follows.
 - [Skills Index](./docs/skills/README.md). All skills, grouped by purpose.
 - [Agents Index](./docs/agents/README.md). All agents, grouped by role.

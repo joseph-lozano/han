@@ -31,7 +31,7 @@ Operator documentation for the `/{skill-name}` skill in the han plugin. This doc
 
 ## How to invoke it
 
-Run `/{skill-name}` in Claude Code.
+Run `/{skill-name}` in Claude Code or Pi.
 
 Give it:
 

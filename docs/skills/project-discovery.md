@@ -35,7 +35,7 @@ Operator documentation for the `/project-discovery` skill in the han plugin. Thi
 
 ## How to invoke it
 
-Run `/project-discovery` in Claude Code. It scans by default. Pass an output path only if you want it somewhere other than `docs/project-discovery.md`.
+Run `/project-discovery` in Claude Code or Pi. It scans by default. Pass an output path only if you want it somewhere other than `docs/project-discovery.md`.
 
 Give it:
 

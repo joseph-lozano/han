@@ -2,23 +2,23 @@
 name: "iterative-plan-review"
 description: >
   Sharpens and stress-tests an existing plan file through multiple codebase-grounded
-  review passes, editing it in place and recording every finding and iteration in
-  cross-referenced companion files. Use this skill whenever the user wants to
-  iterate on, refine, tighten, or improve a plan — including terse commands like
-  "iterate", "refine it", or "iterate for correctness" where a plan is present in
-  context. Also use it when the user asks to verify, validate, or confirm
-  feasibility of an approach (e.g., "can you verify this will work", "check this
-  for correctness", "is this sound") — the defining signal is that the user wants
-  critical evaluation of a proposed approach, not execution of it. Produces two
-  companion files in an artifacts/ subfolder next to the plan: review-findings.md
-  (every finding raised and how it was resolved) and review-iteration-history.md
-  (round-by-round record of specialists engaged and plan changes applied). Do NOT use for implementing plan
-  steps, generating new plans from scratch, writing test plans, code review, or
-  bug investigation.
+  review passes, editing it in place and recording findings and iteration history
+  in companion files. Use when the user wants to iterate on, refine, tighten,
+  improve, verify, validate, or confirm the feasibility of a proposed plan or
+  approach, including terse commands like "iterate", "refine it", or "check this
+  for correctness" when a plan is present in context. The defining signal is
+  critical evaluation of an approach, not execution. Does not implement plan
+  steps, generate new plans from scratch, write test plans, review code, or
+  investigate bugs.
 arguments: size
 argument-hint: "[size: small | medium | large] [context or path to plan file]"
 allowed-tools: Read, Write, Edit, Glob, Grep, Agent, Bash(find *)
 ---
+
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
 
 ## Project Context
 

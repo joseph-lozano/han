@@ -42,7 +42,7 @@ Operator documentation for the `/plan-a-phased-build` skill in the han plugin. T
 
 ## How to invoke it
 
-Run `/plan-a-phased-build` in Claude Code. Point it at the source context (a file path, a folder path, or inline description) in the same message.
+Run `/plan-a-phased-build` in Claude Code or Pi. Point it at the source context (a file path, a folder path, or inline description) in the same message.
 
 Give it:
 

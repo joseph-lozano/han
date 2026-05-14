@@ -42,7 +42,7 @@ Operator documentation for the `/plan-a-feature` skill in the han plugin. This d
 
 ## How to invoke it
 
-Run `/plan-a-feature` directly in Claude Code. Pair it with a description of the feature in the same message, or let the skill ask you for one if you haven't given enough.
+Run `/plan-a-feature` directly in Claude Code or Pi. Pair it with a description of the feature in the same message, or let the skill ask you for one if you haven't given enough.
 
 Give it:
 

@@ -14,6 +14,11 @@ argument-hint: "[optional: file paths, directories, or description of what to te
 allowed-tools: Bash(git *), Bash(find *), Bash(ls *), Read, Grep, Glob, Agent
 ---
 
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
+
 ## Operating Principles
 
 - **YAGNI is a first-class operating principle for tests.** Apply the evidence-based YAGNI rule from [../../references/yagni-rule.md](../../references/yagni-rule.md). A test is worth recommending only when (a) the code under review commits to a behavior the test verifies and (b) the failure mode the test would catch is realistic for this codebase. Tests for code paths that don't exist yet, hypothetical adversaries the code doesn't face, hypothetical scaling problems the workload doesn't have, "completeness" with existing tests, or symmetry ("we have a test for create, so we should have one for delete") are YAGNI candidates and go to the Deferred Tests section with the trigger that would justify writing them. When many speculative low-level tests can be replaced by one durable behavioral test that catches the same realistic failure modes, recommend the single test instead. Every test is ongoing maintenance and a brittleness surface.

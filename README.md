@@ -2,11 +2,11 @@
 
 <img src="images/han-banner.png">
 
-Han is a suite of AI skills and agents for solo (or small-team) product engineers. It combines evidence-based planning, full documentation maintenance, deep code review, and architectural analysis into a team of specialists you can dispatch from Claude Code.
+Han is a suite of AI skills and agents for solo (or small-team) product engineers. It combines evidence-based planning, full documentation maintenance, deep code review, and architectural analysis into a team of specialists you can dispatch from Claude Code or Pi.
 
 ## What this plugin does
 
-Han turns planning, review, and documentation work that would normally take a team into a set of deterministic skills you run from Claude Code. Each skill dispatches specialist agents (project managers, adversarial reviewers, investigators, architectural analysts, testing and security specialists) to do the judgment-heavy work, then folds their findings into an artifact you can trust.
+Han turns planning, review, and documentation work that would normally take a team into a set of deterministic skills you run from Claude Code or Pi. Each skill dispatches specialist agents (project managers, adversarial reviewers, investigators, architectural analysts, testing and security specialists) to do the judgment-heavy work, then folds their findings into an artifact you can trust.
 
 The skills are designed to compose. You can plan a feature, then plan its implementation, then iterate on the plan, then review the resulting code, then write the PR description. All through named skills that hand off to each other cleanly.
 
@@ -74,6 +74,18 @@ Not sure which category fits your situation? The [Quickstart](./docs/quickstart.
 
 ## Installation
 
+### Pi
+
+Install Han from GitHub in one line:
+
+```bash
+pi install git:github.com/testdouble/han
+```
+
+Han is a Pi package. The install loads the Han skills, Claude-style prompt aliases such as `/code-review`, and the `pi-subagents` extension Han uses to dispatch its specialist agents. Pi also exposes each skill as `/skill:name`, for example `/skill:code-review`.
+
+### Claude Code
+
 Add the Test Double skills marketplace to Claude Code, then install the plugin:
 
 ```
@@ -90,9 +102,10 @@ Add the Test Double skills marketplace to Claude Code, then install the plugin:
 - [Sizing](./docs/sizing.md). The small / medium / large model that decides how many agents the swarming skills dispatch.
 - [YAGNI](./docs/yagni.md). The evidence-based "You Aren't Gonna Need It" rule every planning, review, and architecture skill applies.
 - [Contributing](./CONTRIBUTING.md). Adding or editing skills, agents, and documentation.
+- [Pi compatibility](./docs/pi.md). How the Pi package maps Han skills, agents, and slash commands.
 - [Changelog](./CHANGELOG.md). What's new in each version of the plugin.
 
-## Maintainance and Support
+## Maintenance and Support
 
 - **Maintenance horizon:** Indefinitely maintained, best-effort. No SLA.
 - **Project type:** Personal project, with some Test Double support

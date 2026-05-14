@@ -37,7 +37,7 @@ Operator documentation for the `/investigate` skill in the han plugin. This docu
 
 ## How to invoke it
 
-Run `/investigate` in Claude Code with a description of the problem.
+Run `/investigate` in Claude Code or Pi with a description of the problem.
 
 Give it:
 

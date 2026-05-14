@@ -35,7 +35,7 @@ Operator documentation for the `/update-pr-description` skill in the han plugin.
 
 ## How to invoke it
 
-Run `/update-pr-description` in Claude Code. Optionally pass context for the description.
+Run `/update-pr-description` in Claude Code or Pi. Optionally pass context for the description.
 
 Give it:
 

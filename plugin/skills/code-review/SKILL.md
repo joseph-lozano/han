@@ -6,6 +6,11 @@ argument-hint: "[size: small | medium | large] [optional context about changes o
 allowed-tools: Bash(git *), Bash(make *), Bash(npm *), Read, Grep, Glob, Agent
 ---
 
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
+
 When running a code review, follow the process outlined here.
 
 ## Project Context

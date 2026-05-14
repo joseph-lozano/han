@@ -12,6 +12,11 @@ argument-hint: [standard-topic or document-path]
 allowed-tools: Read, Write, Edit, Glob, Grep, Agent, Bash(git config *), Bash(whoami), Bash(mkdir *), Bash(find *)
 ---
 
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
+
 ## Project Context
 
 - Git user: !`git config user.name` (!`git config user.email`)

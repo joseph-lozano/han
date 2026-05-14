@@ -37,7 +37,7 @@ Operator documentation for the `/project-documentation` skill in the han plugin.
 
 ## How to invoke it
 
-Run `/project-documentation` with a feature name or document path.
+Run `/project-documentation` in Claude Code or Pi with a feature name or document path.
 
 Give it:
 

@@ -41,7 +41,7 @@ Operator documentation for the `/iterative-plan-review` skill in the han plugin.
 
 ## How to invoke it
 
-Run `/iterative-plan-review` directly in Claude Code. Point it at the plan file in the same message, or let the skill locate the most recent plan under `~/.claude/plans/*.md` if no path is given (Glob returns files sorted by modification time, so the most recent plan is the first result).
+Run `/iterative-plan-review` directly in Claude Code or Pi. Point it at the plan file in the same message, or let the skill locate the most recent plan under `~/.claude/plans/*.md` if no path is given (Glob returns files sorted by modification time, so the most recent plan is the first result).
 
 Give it:
 

@@ -2,7 +2,11 @@
 
 New to the han plugin? Pick the path that matches what you are trying to do right now. Each path is a short sequence (two or three skills) that compose into a useful result. You can follow one path end to end, or jump off at any step.
 
-> See also: [Plugin landing page](../README.md) · [Concepts](./concepts.md) · [Skills](./skills/README.md) · [Agents](./agents/README.md) · [Sizing](./sizing.md) · [YAGNI](./yagni.md)
+> See also: [Plugin landing page](../README.md) · [Concepts](./concepts.md) · [Pi compatibility](./pi.md) · [Skills](./skills/README.md) · [Agents](./agents/README.md) · [Sizing](./sizing.md) · [YAGNI](./yagni.md)
+
+## Command names
+
+In Claude Code, use commands like `/code-review`. In Pi, those commands work through Han's prompt aliases, and you can also use Pi's native skill form, such as `/skill:code-review`.
 
 ## Which path are you on?
 
@@ -71,7 +75,7 @@ Every other path works better when the plugin has rich context about your projec
 
 ## Combining paths
 
-You can reference multiple skills in one prompt and Claude runs them in sequence, feeding each one's output into the next. A few that work:
+You can reference multiple skills in one prompt and the agent runs them in sequence, feeding each one's output into the next. A few that work:
 
 - *"Investigate why webhook deliveries are failing intermittently, then create a plan to fix it and iterate on it."* → [`/investigate`](./skills/investigate.md) → [`/iterative-plan-review`](./skills/iterative-plan-review.md).
 - *"Scan this repo, document the auth system, and create a coding standard for how we handle tokens."* → [`/project-discovery`](./skills/project-discovery.md) → [`/project-documentation`](./skills/project-documentation.md) → [`/coding-standard`](./skills/coding-standard.md).

@@ -11,6 +11,11 @@ argument-hint: [optional context about the PR]
 allowed-tools: Read, Glob, Grep, Agent, Bash(git *), Bash(gh *)
 ---
 
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
+
 ## Pre-requisites
 
 - gh CLI: !`which gh`

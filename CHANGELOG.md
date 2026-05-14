@@ -1,5 +1,13 @@
 # Han Release Notes
 
+## Unreleased
+
+### Pi package support
+
+Han now includes a Pi package manifest in `package.json`, Pi prompt aliases for the 15 skill slash commands, and a Pi extension that mirrors Han's 21 agent definitions into Pi's subagent discovery directory. The package can be installed from GitHub with `pi install git:github.com/testdouble/han`.
+
+Documentation now covers Pi installation, command aliases, agent dispatch, and local development setup.
+
 ## v2.2.0
 
 The `/gap-analysis` swarm flips from opt-in to opt-out, `junior-developer` is promoted to a required swarm role at every size to run an explicit actor-perspective sweep, and `project-manager` joins the swarm at medium and large to consolidate Section 4 of the report.

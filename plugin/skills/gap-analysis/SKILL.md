@@ -1,28 +1,26 @@
 ---
 name: "gap-analysis"
 description: >
-  Performs a gap analysis between two artifacts (a current state and a desired
-  state) and produces a plain-language, stakeholder-readable report indexed by
-  stable gap IDs. Use when the user wants to compare, evaluate, audit, or
-  reconcile one artifact against another — including spec-vs-implementation
-  gaps, PRD-vs-shipped-feature gaps, design-vs-build gaps, requirements-vs-code
-  audits, or any "what's missing from X compared to Y" question — and wants a
-  human-readable report rather than raw analyst output. Orchestrates the
-  `gap-analyzer` agent for the primary analysis, then runs a validator-and-
-  augmenter swarm by default to corroborate, contradict, and enrich the findings
-  — including an actor-perspective sweep across human users, API callers, AI
-  agents, and other actor types. The user may opt out of the swarm with
-  `no swarm` to fall back to a lightweight gap-analyzer-only pass. Recommends a
-  swarm team size (small / medium / large) based on gap count, gap-category
-  distribution, and the specific domains the gaps touch. Does not perform the
-  underlying gap analysis itself (delegates to `gap-analyzer`), does not
-  investigate runtime bugs (use `investigate`), does not audit documentation
-  preservation after edits (use the `content-auditor` agent), and does not
-  assess module-level architecture (use `architectural-analysis`).
+  Performs a gap analysis between a current-state artifact and a desired-state
+  artifact, then produces a plain-language report indexed by stable gap IDs. Use
+  when the user wants to compare, evaluate, audit, or reconcile one artifact
+  against another, including spec-vs-implementation, PRD-vs-shipped-feature,
+  design-vs-build, requirements-vs-code, or any "what is missing from X compared
+  to Y" question. Delegates primary analysis to `gap-analyzer`, then runs a
+  validator-and-augmenter swarm by default for confidence, actor-perspective
+  coverage, contradictions, and domain-specific findings. The user may pass
+  `no swarm` for a lightweight analyzer-only pass. Does not investigate runtime
+  bugs, audit documentation preservation after edits, or assess module-level
+  architecture.
 arguments: size
 argument-hint: "[size: small | medium | large] [current state artifact, desired state artifact, optional: scope and modes]"
 allowed-tools: Read, Write, Glob, Grep, Agent, Bash(find *), Bash(git *)
 ---
+
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
 
 ## Project Context
 

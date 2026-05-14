@@ -2,11 +2,11 @@
 
 All agents in the han plugin, grouped by role. Each entry is a one-sentence scent line and a link to the agent's long-form doc.
 
-> See also: [Plugin landing page](../../README.md) · [Concepts](../concepts.md) · [Quickstart](../quickstart.md) · [All skills](../skills/README.md) · [Sizing](../sizing.md) · [YAGNI](../yagni.md)
+> See also: [Plugin landing page](../../README.md) · [Concepts](../concepts.md) · [Quickstart](../quickstart.md) · [Pi compatibility](../pi.md) · [All skills](../skills/README.md) · [Sizing](../sizing.md) · [YAGNI](../yagni.md)
 
 ## New here?
 
-Most agents are dispatched *for you* by skills. You do not usually invoke them directly. Read [Concepts](../concepts.md) for the skill-vs-agent model before browsing this list. If you are looking to dispatch one directly, use the `Agent` tool with `subagent_type: han:{agent-name}`.
+Most agents are dispatched *for you* by skills. You do not usually invoke them directly. Read [Concepts](../concepts.md) for the skill-vs-agent model before browsing this list. If you are looking to dispatch one directly, use the `Agent` tool with `subagent_type: han:{agent-name}` in Claude Code, or `/run {agent-name} "task"` in Pi.
 
 ## Planning & facilitation
 
@@ -70,9 +70,9 @@ Agents that compare artifacts and preserve meaning across documentation moves.
 Agents enter the workflow two ways:
 
 1. **Dispatched by a skill.** The normal path. Run a skill and it chooses the right agents. You see their findings folded into the skill's output. You do not see the agent dispatch itself.
-2. **Dispatched directly.** You invoke the `Agent` tool with `subagent_type: han:{agent-name}`. Most useful when the judgment you want is narrower than any slash command, or when you want a second opinion on something a skill just produced.
+2. **Dispatched directly.** In Claude Code, invoke the `Agent` tool with `subagent_type: han:{agent-name}`. In Pi, use `pi-subagents`, for example `/run {agent-name} "task"`. Direct dispatch is most useful when the judgment you want is narrower than any slash command, or when you want a second opinion on something a skill just produced.
 
-See [Concepts](../concepts.md) for more on skill/agent composition.
+See [Concepts](../concepts.md) for more on skill/agent composition. See [Pi compatibility](../pi.md) for how Han mirrors packaged agents into Pi.
 
 ## What survives a review: YAGNI
 

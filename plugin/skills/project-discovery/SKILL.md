@@ -12,6 +12,11 @@ argument-hint: [output-file-path]
 allowed-tools: Read, Write, Edit, Glob, Grep, Agent, Bash(date *), Bash(mkdir *), Bash(git symbolic-ref *), Bash(find *)
 ---
 
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
+
 ## Project Context
 
 - Default branch: !`git symbolic-ref --short refs/remotes/origin/HEAD`

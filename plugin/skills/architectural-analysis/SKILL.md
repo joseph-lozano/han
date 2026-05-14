@@ -5,6 +5,11 @@ argument-hint: "[focus area: module, directory, or feature to analyze]"
 allowed-tools: Read, Glob, Grep, Agent, Bash(git *), Bash(find *)
 ---
 
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
+
 ## Project Context
 
 - CLAUDE.md: !`find . -maxdepth 1 -name "CLAUDE.md" -type f`

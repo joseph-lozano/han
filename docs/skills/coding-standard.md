@@ -36,7 +36,7 @@ Operator documentation for the `/coding-standard` skill in the han plugin. This 
 
 ## How to invoke it
 
-Run `/coding-standard` with a topic or an existing document path.
+Run `/coding-standard` in Claude Code or Pi with a topic or an existing document path.
 
 Give it:
 

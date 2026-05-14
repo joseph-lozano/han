@@ -40,7 +40,7 @@ Operator documentation for the `/architectural-analysis` skill in the han plugin
 
 ## How to invoke it
 
-Run `/architectural-analysis` in Claude Code with a focus area.
+Run `/architectural-analysis` in Claude Code or Pi with a focus area.
 
 Give it:
 

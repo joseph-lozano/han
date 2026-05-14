@@ -36,7 +36,7 @@ Operator documentation for the `/test-planning` skill in the han plugin. This do
 
 ## How to invoke it
 
-Run `/test-planning` in Claude Code. Optionally pass a scope or a focus description.
+Run `/test-planning` in Claude Code or Pi. Optionally pass a scope or a focus description.
 
 Give it:
 

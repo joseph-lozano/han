@@ -43,7 +43,7 @@ Operator documentation for the `/gap-analysis` skill in the han plugin. This doc
 
 ## How to invoke it
 
-Run `/gap-analysis` in Claude Code. Point it at the two artifacts in the same message, or describe them. Paths, URLs, or inline text all work.
+Run `/gap-analysis` in Claude Code or Pi. Point it at the two artifacts in the same message, or describe them. Paths, URLs, or inline text all work.
 
 Give it:
 

@@ -41,7 +41,7 @@ Operator documentation for the `/code-review` skill in the han plugin. This docu
 
 ## How to invoke it
 
-Run `/code-review` in Claude Code. Pass an optional size override and/or context.
+Run `/code-review` in Claude Code or Pi. Pass an optional size override and/or context.
 
 Give it:
 

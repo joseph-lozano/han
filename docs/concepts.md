@@ -16,9 +16,9 @@ That is the whole model. Everything else is vocabulary.
 
 ## Skills: the process layer
 
-A skill is a fixed sequence of steps that Claude Code runs when you type its slash command.
+A skill is a fixed sequence of steps that Claude Code or Pi runs when you type its slash command.
 
-- You invoke it: `/code-review`, `/plan-a-feature`, `/investigate`.
+- You invoke it: `/code-review`, `/plan-a-feature`, `/investigate`. In Pi, you can also use `/skill:code-review`, `/skill:plan-a-feature`, or `/skill:investigate`.
 - It follows a defined protocol. Every reader who runs the same skill gets the same shape of output.
 - It is documented by a `SKILL.md` file inside `plugin/skills/{name}/`.
 - It may dispatch one or more agents for the steps that need judgment.
@@ -88,7 +88,7 @@ You might invoke an agent directly when:
 - You want a second opinion after a skill has run. Dispatch `adversarial-validator` against the plan a planning skill produced.
 - You are composing a custom workflow that does not match any slash command cleanly.
 
-Direct invocation uses the `Agent` tool with `subagent_type: han:{agent-name}` (for example, `han:adversarial-security-analyst`).
+Direct invocation depends on your harness. In Claude Code, use the `Agent` tool with `subagent_type: han:{agent-name}` (for example, `han:adversarial-security-analyst`). In Pi, use `pi-subagents`, for example `/run adversarial-security-analyst "audit src/auth"` or a `subagent({ agent: "adversarial-security-analyst", task: "..." })` tool call.
 
 ## What does the plugin include?
 
@@ -104,6 +104,7 @@ Skim the indexes after you read this page. Pick the one skill you need right now
 - **Want a specific agent?** → [Agents Index](./agents/README.md).
 - **Want to know how dispatch scales?** → [Sizing](./sizing.md).
 - **Want to know what survives a review?** → [YAGNI](./yagni.md).
+- **Using Han in Pi?** → [Pi compatibility](./pi.md).
 - **Writing your own skill or agent?** → [Contributing](../CONTRIBUTING.md).
 
 ## Related reading
@@ -111,3 +112,4 @@ Skim the indexes after you read this page. Pick the one skill you need right now
 - [`docs/plugin-entity-taxonomy.md`](./guidance/plugin-entity-taxonomy.md). The taxonomy this plugin follows. Applies across all plugins in this repo.
 - [Claude Code Skills reference](https://code.claude.com/docs/en/skills). How skills are defined and invoked in Claude Code itself.
 - [Claude Code Subagents reference](https://code.claude.com/docs/en/sub-agents). How agents are dispatched from inside skills.
+- [Pi compatibility](./pi.md). How Han maps Claude Code skills and agents into Pi.

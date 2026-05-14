@@ -42,7 +42,7 @@ Operator documentation for the `/plan-implementation` skill in the han plugin. T
 
 ## How to invoke it
 
-Run `/plan-implementation` directly in Claude Code. Point it at the source specification in the same message, or let the skill locate a recent `feature-specification.md` under documentation roots discovered from CLAUDE.md.
+Run `/plan-implementation` directly in Claude Code or Pi. Point it at the source specification in the same message, or let the skill locate a recent `feature-specification.md` under documentation roots discovered from CLAUDE.md.
 
 Give it:
 

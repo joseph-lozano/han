@@ -14,7 +14,11 @@ Current version: **2.2.0** (see [CHANGELOG.md](./CHANGELOG.md)).
 ├── CHANGELOG.md    # Version history
 ├── .claude-plugin/
 │   └── marketplace.json   # Test Double marketplace manifest
-├── plugin/             # The actual plugin shipped to Claude Code
+├── package.json        # Pi package manifest for one-line `pi install`
+├── prompts/            # Pi prompt aliases for Claude-style slash commands
+├── pi/                 # Pi-specific package support
+│   └── extensions/     # Han Pi extension for agent syncing
+├── plugin/             # The actual plugin shipped to Claude Code and Pi skills
 │   ├── .claude-plugin/
 │   │   └── plugin.json
 │   ├── agents/         # 21 agent definitions (.md with frontmatter)
@@ -51,6 +55,7 @@ The plugin is shipped from `plugin/`; documentation lives in `docs/`. Long-form 
 
 - **[docs/concepts.md](./docs/concepts.md).** The skill-vs-agent model that runs through the whole plugin. Read once before doing anything else. Every other doc assumes this vocabulary.
 - **[docs/quickstart.md](./docs/quickstart.md).** Four path-based recipes (plan a feature, investigate a bug, review code, set up a project). Use when picking which skill to run for a specific situation.
+- **[docs/pi.md](./docs/pi.md).** Pi installation and compatibility notes. Use when changing `package.json`, `prompts/`, or `pi/extensions/`.
 - **[docs/sizing.md](./docs/sizing.md).** The small / medium / large dispatch model used by the five swarming skills (`/code-review`, `/gap-analysis`, `/iterative-plan-review`, `/plan-a-feature`, `/plan-implementation`). Use when a swarming skill needs to decide team size, or when a user asks what `medium` / `large` mean.
 - **[docs/yagni.md](./docs/yagni.md).** The evidence-based "You Aren't Gonna Need It" rule every planning, review, and architecture skill applies before committing items to its artifact. Use when explaining why an item was deferred or rejected from a plan / review / ADR.
 

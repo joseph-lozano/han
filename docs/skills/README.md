@@ -2,11 +2,11 @@
 
 All skills in the han plugin, grouped by purpose. Each entry is a one-sentence scent line plus a link to the canonical long-form doc.
 
-> See also: [Plugin landing page](../../README.md) · [Concepts](../concepts.md) · [Quickstart](../quickstart.md) · [All agents](../agents/README.md) · [Sizing](../sizing.md) · [YAGNI](../yagni.md)
+> See also: [Plugin landing page](../../README.md) · [Concepts](../concepts.md) · [Quickstart](../quickstart.md) · [Pi compatibility](../pi.md) · [All agents](../agents/README.md) · [Sizing](../sizing.md) · [YAGNI](../yagni.md)
 
 ## New here?
 
-Start on the [Quickstart](../quickstart.md). It picks the right skill for what you are trying to do right now. If the skill / agent split is fuzzy, read [Concepts](../concepts.md) first.
+Start on the [Quickstart](../quickstart.md). It picks the right skill for what you are trying to do right now. If the skill / agent split is fuzzy, read [Concepts](../concepts.md) first. If you use Pi, read [Pi compatibility](../pi.md) for command names and agent dispatch.
 
 ## Planning
 

@@ -35,7 +35,7 @@ Operator documentation for the `/gh-pr-review` skill in the han plugin. This doc
 
 ## How to invoke it
 
-Run `/gh-pr-review` in Claude Code. Optionally pass focus areas.
+Run `/gh-pr-review` in Claude Code or Pi. Optionally pass focus areas.
 
 Give it:
 

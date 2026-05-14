@@ -1,24 +1,25 @@
 ---
 name: "plan-a-feature"
 description: >
-  Builds a feature specification from scratch through a relentless, evidence-based
-  interview that walks the design tree decision-by-decision, resolving dependencies
-  as it goes. Use when the user wants to plan, design, scope, specify, or flesh out
-  a new feature, capability, or system behavior before implementation — including
-  requests like "help me plan X", "spec out this feature", "design the Y flow", or
-  "let's figure out what it should do". Explores the codebase, project
-  documentation, coding standards, and ADRs to resolve questions before asking the
-  user, and always offers a recommended answer when questions must be surfaced.
-  Produces a feature-specification.md focused on system behaviors, coordinations,
-  processes, and user interactions — not implementation detail. Does not refine or
-  stress-test an existing plan — use iterative-plan-review. Does not investigate
-  bugs or failures — use investigate. Does not analyze existing architecture — use
-  architectural-analysis. Does not document already-built features — use
-  project-documentation. Does not record architectural decisions — use architectural-decision-record.
+  Builds a feature specification from scratch through an evidence-based interview
+  that walks the design tree decision by decision. Use when the user wants to
+  plan, design, scope, specify, or flesh out a new feature, capability, or system
+  behavior before implementation, including "help me plan X", "spec out this
+  feature", "design the Y flow", or "let's figure out what it should do".
+  Explores the codebase, project documentation, coding standards, and ADRs before
+  asking the user, and produces a feature-specification.md focused on system
+  behaviors, coordinations, processes, and user interactions. Does not refine an
+  existing plan, investigate bugs, analyze existing architecture, document built
+  features, or record ADRs.
 arguments: size
 argument-hint: "[size: small | medium | large] [feature description, optional: output folder path]"
 allowed-tools: Read, Write, Edit, Glob, Grep, Agent, Bash(find *), Bash(mkdir *)
 ---
+
+## Pi Compatibility
+
+When this skill runs under Pi, apply [Pi compatibility](../../references/pi-compatibility.md): use Pi's `subagent(...)` tool for every instruction that says to launch an `Agent` tool call, and use parallel `tasks` for swarm launches.
+
 
 ## Project Context
 

@@ -1,0 +1,52 @@
+{
+  "name": "@testdouble/han",
+  "version": "2.2.0",
+  "description": "Evidence-based planning, investigation, review, and documentation skills for Claude Code and Pi.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testdouble/han.git"
+  },
+  "homepage": "https://github.com/testdouble/han#readme",
+  "bugs": {
+    "url": "https://github.com/testdouble/han/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "claude-code-plugin",
+    "skills",
+    "agents",
+    "code-review",
+    "planning"
+  ],
+  "files": [
+    "plugin/**/*",
+    "prompts/**/*",
+    "pi/**/*",
+    "docs/**/*",
+    "images/**/*",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./pi/extensions/han-agents.ts",
+      "./node_modules/pi-subagents/src/extension/index.ts"
+    ],
+    "skills": [
+      "./plugin/skills",
+      "./node_modules/pi-subagents/skills"
+    ],
+    "prompts": [
+      "./prompts",
+      "./node_modules/pi-subagents/prompts"
+    ]
+  },
+  "dependencies": {
+    "pi-subagents": "^0.24.2"
+  }
+}
