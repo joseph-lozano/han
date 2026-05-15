@@ -4,7 +4,7 @@
 
 A single feature plan today produces ~400–600 KB of artifacts (e.g., `read-only-gear-view/` = 370 KB across 12 markdown files; `read-only-task-view/` and `comments/` similar). Token burn to *produce* those artifacts is multiples larger because every sub-agent re-reads the full spec + decision-log + team-findings + tech-notes + project context before writing.
 
-This plan groups the high- and medium-impact reductions identified during the review of `~/dev/gearjot/gearjot-v2-planning/` artifacts. Target: **40–60% input-token reduction on a typical medium-sized feature plan** without significantly impacting output quality.
+This plan groups the high- and medium-impact reductions identified during a review of real planning artifacts produced by these skills. Target: **40–60% input-token reduction on a typical medium-sized feature plan** without significantly impacting output quality.
 
 The three skills share enough structure that several changes apply to all three. Where a change is skill-specific it is called out explicitly.
 
