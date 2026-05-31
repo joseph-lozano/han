@@ -45,7 +45,13 @@ For the full picture and a quick "which one do you need?" guide, see [Choosing a
 
 ### Pi compatibility fork
 
-This fork includes a Pi compatibility layer under [`pi/`](./pi/README.md). Use it when installing Han into Pi instead of Claude Code. The Pi docs cover global installation, Orca overlay behavior, regeneration commands, and what to do after pulling upstream Han changes.
+This fork includes a Pi compatibility layer under [`pi/`](./pi/README.md). Use it when installing Han into Pi instead of Claude Code:
+
+```sh
+pi install git:github.com/joseph-lozano/han@pi-compat
+```
+
+After installing, run `/han-pi-install-agents` and `/han-pi-doctor` in Pi. The Pi docs cover global installation, Orca overlay behavior, regeneration commands, and what to do after pulling upstream Han changes.
 
 ## Documentation
 
