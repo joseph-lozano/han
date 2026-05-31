@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Han Pi Compatibility Plan</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf8;
+      --ink: #23201d;
+      --muted: #6f675e;
+      --line: #ded6cb;
+      --green: #315f49;
+      --green-soft: #dceade;
+      --purple: #5b4b8a;
+      --purple-soft: #e7e1f7;
+      --orange: #a65f2b;
+      --orange-soft: #f5dfcc;
+      --blue: #2e5e88;
+      --blue-soft: #d9e8f5;
+      --red: #8a3434;
+      --red-soft: #f1d8d8;
+      --code: #27231f;
+      --code-bg: #f0ebe3;
+      --shadow: 0 20px 50px rgba(35, 32, 29, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #ece5dc, var(--bg) 40%, #f8f5f0 100%);
+      color: var(--ink);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 48px auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--paper), #f3efe8);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 44px;
+      margin-bottom: 24px;
+    }
+
+    h1, h2, h3 { line-height: 1.2; margin: 0; }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      letter-spacing: -0.05em;
+      max-width: 880px;
+    }
+
+    h1 span {
+      background: var(--green-soft);
+      color: var(--green);
+      border-radius: 14px;
+      padding: 0 0.16em;
+      white-space: nowrap;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 780px;
+      margin-top: 18px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fffaf2;
+      color: var(--muted);
+      padding: 7px 12px;
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin: 20px 0;
+    }
+
+    section > h2 {
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 22px 0 8px;
+    }
+
+    p { margin: 0 0 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol { margin: 10px 0 0 1.25rem; padding: 0; }
+    li { margin: 8px 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fffaf2;
+    }
+
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .status {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .done { background: var(--green-soft); color: var(--green); }
+    .next { background: var(--blue-soft); color: var(--blue); }
+    .later { background: var(--orange-soft); color: var(--orange); }
+    .risk { background: var(--red-soft); color: var(--red); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      padding: 12px;
+    }
+
+    th {
+      background: #f0ebe3;
+      color: #413a33;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: var(--code-bg);
+      color: var(--code);
+      border-radius: 6px;
+      padding: 0.13em 0.35em;
+      font-size: 0.92em;
+    }
+
+    pre {
+      background: var(--code);
+      color: #fff8ee;
+      border-radius: 16px;
+      padding: 18px;
+      overflow-x: auto;
+      line-height: 1.45;
+      margin: 14px 0 0;
+    }
+
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    .callout {
+      border-left: 6px solid var(--purple);
+      background: var(--purple-soft);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .timeline {
+      counter-reset: phase;
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .phase {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fffaf2;
+      padding: 18px 18px 18px 68px;
+    }
+
+    .phase::before {
+      counter-increment: phase;
+      content: counter(phase);
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+    }
+
+    .phase h3 { margin-top: 0; }
+
+    .footer-note {
+      color: var(--muted);
+      text-align: center;
+      margin: 28px 0 0;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      header { padding: 28px; }
+      section { padding: 22px; }
+      .span-4, .span-6, .span-8, .span-12 { grid-column: 1 / -1; }
+      .phase { padding-left: 18px; padding-top: 64px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Han <span>Pi compatibility</span> plan</h1>
+      <p class="subtitle">This plan makes Han usable in Pi while keeping the Claude Code plugin files as the source of truth. The work is a small adapter layer, not a permanent rewrite of Han.</p>
+      <div class="meta">
+        <span class="chip">Working directory: Pi-compat</span>
+        <span class="chip">Target: your Han fork</span>
+        <span class="chip">Mode: thin compatibility layer</span>
+        <span class="chip">Status: ready to build</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Bottom line</h2>
+      <p>The good news is that the missing Pi pieces are now in place. You installed <code>pi-subagents</code> and <code>@juicesharp/rpiv-ask-user-question</code>, which cover the two biggest Claude Code assumptions in Han: specialist agents and structured user questions.</p>
+      <p>The next step is to teach Han how to present itself to Pi. We can do that with a Pi package manifest, generated Pi-subagent agent files, and a small extension that explains the translation rules to the parent Pi session.</p>
+      <div class="callout">
+        <strong>Recommendation:</strong> use your fork and build a compatibility layer on top of Han. Keep the existing Han skills and agents canonical, then generate or adapt only the Pi-specific pieces.
+      </div>
+    </section>
+
+    <section>
+      <h2>Current state</h2>
+      <div class="grid">
+        <div class="card span-4">
+          <span class="status done">Done</span>
+          <h3>Subagents installed</h3>
+          <p><code>npm:pi-subagents</code> is installed, so Pi can delegate to child agents with single, parallel, chain, and async modes.</p>
+        </div>
+        <div class="card span-4">
+          <span class="status done">Done</span>
+          <h3>Structured questions installed</h3>
+          <p><code>npm:@juicesharp/rpiv-ask-user-question</code> is installed, so Han's decision prompts can map to Pi's <code>ask_user_question</code> tool.</p>
+        </div>
+        <div class="card span-4">
+          <span class="status done">Done</span>
+          <h3>Footer installed</h3>
+          <p><code>npm:pi-powerline-footer</code> is installed. It improves the Pi interface, but it does not change Han compatibility.</p>
+        </div>
+        <div class="card span-6">
+          <span class="status next">Next</span>
+          <h3>Han skills need Pi packaging</h3>
+          <p>Han is currently a Claude Code plugin marketplace project. Pi can load the skill folders, but it does not read <code>.claude-plugin/plugin.json</code>.</p>
+        </div>
+        <div class="card span-6">
+          <span class="status next">Next</span>
+          <h3>Han agents need Pi-subagent registration</h3>
+          <p><code>pi-subagents</code> discovers agents from <code>~/.pi/agent/agents/**/*.md</code> and <code>.pi/agents/**/*.md</code>. It does not automatically read <code>han.core/agents</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Compatibility decisions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Decision</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Do we rewrite Han for Pi?</td>
+            <td>No. Add a thin Pi layer.</td>
+            <td>Han can stay Claude Code-first while your fork becomes usable from Pi. This reduces drift from upstream.</td>
+          </tr>
+          <tr>
+            <td>Where do converted agents live?</td>
+            <td>Generate them into <code>pi/agents</code>, then copy them into the active Pi-subagents user discovery directory through an explicit command.</td>
+            <td>Pi packages can load skills and extensions, but <code>pi-subagents</code> has its own agent discovery locations. The command should target <code>$PI_CODING_AGENT_DIR/agents/han</code> when that environment variable is set, such as inside Orca, and fall back to <code>~/.pi/agent/agents/han</code>. The destination keeps Han agents grouped; the package source does not need a redundant <code>han</code> subfolder.</td>
+          </tr>
+          <tr>
+            <td>Do we preserve model names?</td>
+            <td>Map Han's model tiers onto your Pi models.</td>
+            <td>This fork is for your setup, so keep Han's intent and translate it with one concrete map: <code>haiku</code> → <code>openai-codex/gpt-5.4-mini</code>, <code>sonnet</code> → <code>openai-codex/gpt-5.5:low</code>, and <code>opus</code> → <code>openai-codex/gpt-5.5:xhigh</code>. Pi names the extra-high thinking suffix <code>xhigh</code>.</td>
+          </tr>
+          <tr>
+            <td>How do we handle Claude tool names?</td>
+            <td>Convert agent frontmatter and add parent-session compatibility guidance.</td>
+            <td>Agents need lowercase Pi tool names. Skills need guidance so the parent maps <code>Agent</code> to <code>subagent</code>.</td>
+          </tr>
+          <tr>
+            <td>How do we handle <code>${CLAUDE_SKILL_DIR}</code>?</td>
+            <td>Patch Pi-facing skill copies or add explicit compatibility guidance that resolves scripts relative to the active skill directory.</td>
+            <td>Pi does not define that environment variable. Running it literally would fail.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Target file layout</h2>
+      <p>Use a small <code>pi/</code> area for generated artifacts and a script that rebuilds them from the canonical Han files.</p>
+      <pre><code>han/
+├── package.json                         # Pi package manifest at repo root
+├── pi/
+│   ├── agents/                          # generated Pi-subagent agents
+│   ├── skills/                          # generated Pi-facing skill copies
+│   ├── extensions/han-pi-compat.ts      # Pi compatibility helper
+│   └── README.md                        # Pi-specific install notes
+├── scripts/
+│   ├── generate-pi-agents.mjs           # converts han.core/agents/*.md
+│   ├── generate-pi-skills.mjs           # copies skills and normalizes Pi metadata
+│   └── verify-pi-compat.mjs             # smoke-checks generated files
+├── han.core/skills/                     # canonical Han skills
+├── han.core/agents/                     # canonical Han agents
+├── han.github/skills/
+├── han.reporting/skills/
+└── han.feedback/skills/</code></pre>
+    </section>
+
+    <section>
+      <h2>Implementation phases</h2>
+      <div class="timeline">
+        <div class="phase">
+          <h3>Package Han for Pi</h3>
+          <p>Add a root <code>package.json</code> with a <code>pi</code> manifest. The manifest should load Han skills from <code>han.core/skills</code>, <code>han.github/skills</code>, <code>han.reporting/skills</code>, <code>han.feedback/skills</code>, and the compatibility extension from <code>pi/extensions</code>.</p>
+          <pre><code>{
+  "name": "han-pi-compat",
+  "keywords": ["pi-package"],
+  "pi": {
+    "extensions": ["./pi/extensions/han-pi-compat.ts"],
+    "skills": [
+      "./pi/skills/han.core/skills",
+      "./pi/skills/han.github/skills",
+      "./pi/skills/han.reporting/skills",
+      "./pi/skills/han.feedback/skills"
+    ]
+  }
+}</code></pre>
+        </div>
+
+        <div class="phase">
+          <h3>Generate Pi-subagent agent files</h3>
+          <p>Create <code>scripts/generate-pi-agents.mjs</code>. It reads <code>han.core/agents/*.md</code>, converts tool names, maps Han's model tiers to your configured Pi model IDs, and writes the results to <code>pi/agents/*.md</code>.</p>
+          <table>
+            <thead>
+              <tr><th>Claude agent field</th><th>Pi-subagents field</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>Read</code></td><td><code>read</code></td></tr>
+              <tr><td><code>Write</code></td><td><code>write</code></td></tr>
+              <tr><td><code>Edit</code></td><td><code>edit</code></td></tr>
+              <tr><td><code>Glob</code></td><td><code>find</code></td></tr>
+              <tr><td><code>Grep</code></td><td><code>grep</code></td></tr>
+              <tr><td><code>Bash(...)</code></td><td><code>bash</code></td></tr>
+              <tr><td><code>WebSearch</code></td><td><code>web_search</code></td></tr>
+              <tr><td><code>WebFetch</code></td><td><code>fetch_content</code></td></tr>
+            </tbody>
+          </table>
+          <table>
+            <thead>
+              <tr><th>Han model tier</th><th>Your Pi target</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>haiku</code></td><td><code>openai-codex/gpt-5.4-mini</code> for fast scouting, project scanning, and content audits.</td></tr>
+              <tr><td><code>sonnet</code></td><td><code>openai-codex/gpt-5.5:low</code> for the default structured specialist tier.</td></tr>
+              <tr><td><code>opus</code></td><td><code>openai-codex/gpt-5.5:xhigh</code> for project management, architecture, security, synthesis, and other high-judgment work.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="phase">
+          <h3>Add the compatibility extension</h3>
+          <p>Create <code>pi/extensions/han-pi-compat.ts</code>. It should add parent-session guidance before each agent turn and register a command that installs the generated Han agents into Pi-subagents' discovery directory.</p>
+          <pre><code>// command behavior
+/han-pi-install-agents
+
+// copies
+pi/agents/*.md
+
+// to
+$PI_CODING_AGENT_DIR/agents/han/*.md
+// or, outside an overlay:
+~/.pi/agent/agents/han/*.md</code></pre>
+          <p>The extension should not silently write global agent files on startup. Make the user run the command once so the filesystem change is explicit.</p>
+        </div>
+
+        <div class="phase">
+          <h3>Patch the Pi-facing skill instructions only where needed</h3>
+          <p>Use generated Pi-facing skill copies under <code>pi/skills</code> so canonical Han skills stay Claude Code-first. Normalize only metadata that blocks loading, such as YAML-sensitive argument hints. Preserve original descriptions even when Pi warns that they exceed 1024 characters, because that warning does not prevent loading. Preserve sibling <code>references/</code> and <code>scripts/</code> directories. The generator also patches Pi-facing body text for concrete model IDs and Han agent runtime names. Keep broader runtime behavior translation in the compatibility extension unless smoke tests prove a skill body needs another concrete generated patch.</p>
+          <p>Keep these patches generated or documented so upstream Han changes remain easy to merge.</p>
+        </div>
+
+        <div class="phase">
+          <h3>Add a doctor command</h3>
+          <p>Add <code>/han-pi-doctor</code> to check the local setup. This should report whether the required Pi packages are installed, whether Han agents are visible to <code>pi-subagents</code>, whether <code>pi-web-access</code> is installed for research flows, and whether the current project has loaded Han skills.</p>
+        </div>
+
+        <div class="phase">
+          <h3>Run smoke tests</h3>
+          <p>Use a small set of workflows that exercise each compatibility seam before treating the fork as usable.</p>
+          <ul>
+            <li><code>/skill:issue-triage</code> for a skill that does not need subagents.</li>
+            <li><code>/skill:test-planning</code> for parallel specialist agent dispatch.</li>
+            <li><code>/skill:stakeholder-summary</code> for writing a report file.</li>
+            <li><code>/skill:html-summary</code> for script path handling.</li>
+            <li><code>/skill:research</code> after installing <code>npm:pi-web-access</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Install flow after the layer exists</h2>
+      <p>The intended user flow should be short. You install the Pi dependencies, install Han from your fork, then run one setup command for the agents.</p>
+      <pre><code>pi install npm:pi-subagents
+pi install npm:@juicesharp/rpiv-ask-user-question
+pi install npm:pi-web-access
+pi install git:github.com/YOU/han@pi-compat
+
+# Restart Pi or run /reload, then:
+/han-pi-install-agents
+/han-pi-doctor</code></pre>
+    </section>
+
+    <section>
+      <h2>Risks and controls</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <span class="status risk">Risk</span>
+          <h3>The parent Pi model follows Claude instructions literally</h3>
+          <p><strong>Control:</strong> inject clear compatibility guidance and smoke-test the highest-value skills. Patch repeated failures in generated Pi-facing skill copies.</p>
+        </div>
+        <div class="card span-6">
+          <span class="status risk">Risk</span>
+          <h3>Model aliases drift from your Pi setup</h3>
+          <p><strong>Control:</strong> keep one compatibility model map for <code>haiku</code>, <code>sonnet</code>, and <code>opus</code>. The doctor command should verify those concrete Pi model IDs still exist before generated agents use them.</p>
+        </div>
+        <div class="card span-6">
+          <span class="status risk">Risk</span>
+          <h3>Script paths fail because <code>CLAUDE_SKILL_DIR</code> is missing</h3>
+          <p><strong>Control:</strong> patch script references to use the skill directory wording, or provide generated Pi skill copies for script-heavy skills.</p>
+        </div>
+        <div class="card span-6">
+          <span class="status risk">Risk</span>
+          <h3>Upstream Han changes drift from the fork</h3>
+          <p><strong>Control:</strong> keep canonical files unchanged where possible and make Pi artifacts generated. Regenerate after every upstream merge.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Definition of done</h2>
+      <ul>
+        <li><code>pi install git:github.com/YOU/han@pi-compat</code> loads Han skills and the compatibility extension.</li>
+        <li><code>/han-pi-install-agents</code> installs converted Han agents into the active Pi-subagents user discovery directory, using <code>$PI_CODING_AGENT_DIR/agents/han</code> when set and <code>~/.pi/agent/agents/han</code> otherwise.</li>
+        <li><code>/han-pi-doctor</code> reports all required Pi dependencies and visible Han agents.</li>
+        <li>A parent Pi session can run at least one subagent-heavy Han skill through <code>pi-subagents</code>.</li>
+        <li>A self-contained skill such as <code>stakeholder-summary</code> works without Claude Code.</li>
+        <li>The compatibility layer is documented in <code>pi/README.md</code> with install and troubleshooting steps.</li>
+      </ul>
+    </section>
+
+    <p class="footer-note">Written for the current Han Pi compatibility fork. This file is intentionally self-contained so you can open it directly in a browser.</p>
+  </main>
+</body>
+</html>

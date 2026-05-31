@@ -43,6 +43,10 @@ you want it.
 
 For the full picture and a quick "which one do you need?" guide, see [Choosing a Han plugin](./docs/choosing-a-han-plugin.md).
 
+### Pi compatibility fork
+
+This fork includes a Pi compatibility layer under [`pi/`](./pi/README.md). Use it when installing Han into Pi instead of Claude Code. The Pi docs cover global installation, Orca overlay behavior, regeneration commands, and what to do after pulling upstream Han changes.
+
 ## Documentation
 
 - [Concepts](./docs/concepts.md). Skill vs. agent, and how they compose. Read once before using the plugin.
@@ -58,6 +62,7 @@ For the full picture and a quick "which one do you need?" guide, see [Choosing a
 - [Extend Han via dependencies](./docs/how-to/extend-han-with-plugin-dependencies.md). Add your own custom skills on top of Han.
 - [Build a plugin that depends on Han](./docs/how-to/build-a-plugin-that-depends-on-han.md). Ship a plugin that builds on Han's skills and agents.
 - [Contributing](./CONTRIBUTING.md). Adding or editing skills, agents, and documentation.
+- [Pi compatibility](./pi/README.md). Install and maintain this fork's Pi package layer, including upstream sync steps.
 - [Changelog](./CHANGELOG.md). What's new in each version of the plugin.
 
 ## Maintenance and Support

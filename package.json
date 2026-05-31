@@ -1,0 +1,23 @@
+{
+  "name": "han-pi-compat",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Pi compatibility package for Han skills and agents.",
+  "keywords": [
+    "pi-package"
+  ],
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "pi": {
+    "extensions": [
+      "./pi/extensions/han-pi-compat.ts"
+    ],
+    "skills": [
+      "./pi/skills/han.core/skills",
+      "./pi/skills/han.github/skills",
+      "./pi/skills/han.reporting/skills",
+      "./pi/skills/han.feedback/skills"
+    ]
+  }
+}
